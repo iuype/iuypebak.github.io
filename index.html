@@ -63,6 +63,65 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-R语言笔记0" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2019/11/30/R%E8%AF%AD%E8%A8%80%E7%AC%94%E8%AE%B00/" class="article-date">
+  <time datetime="2019-11-30T10:23:09.000Z" itemprop="datePublished">2019-11-30</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/11/30/R%E8%AF%AD%E8%A8%80%E7%AC%94%E8%AE%B00/">R语言笔记0</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="1时间序列的概念"><a href="#1时间序列的概念" class="headerlink" title="1时间序列的概念"></a>1时间序列的概念</h1><p><strong>时间序列的定义：</strong> 按时间顺序排列的随机变量序列。<br><strong>观测样本:</strong> 时间序列各随机变量的观测样本。一定是有限多个。<br><strong>一次实现(一条轨道):</strong> 时间序列的一组实际观测。<br><strong>时间序列分析的任务:</strong> 数据建模，解释、控制或预报。<br><strong>记号：</strong>${X_t},{x_t},X(t),x(t)$</p>
+<h2 id="1-1时间序列的分解"><a href="#1-1时间序列的分解" class="headerlink" title="1.1时间序列的分解"></a>1.1时间序列的分解</h2><p>$$X_t = T_t + S_t + R_t,t = 1,2,…$$</p>
+<ul>
+<li>趋势项$T_t$</li>
+<li>季节项$S_t$</li>
+<li>随机项$R_t$</li>
+<li>有时还有随机周期项</li>
+</ul>
+<p><strong>季节模型有：</strong> 固定的周期季节：$S(t+s) = S(t), \forall t,只需要S_1,S_2,…,S_s 且可设\sum_{j=1}^sS(j) = 0$<br><strong>关于随机项：</strong> 可设（数学期望）$E[R_t] = 0,\forall t$</p>
+<h3 id="1-1-1例子-居民用煤消耗季度值"><a href="#1-1-1例子-居民用煤消耗季度值" class="headerlink" title="1.1.1例子: 居民用煤消耗季度值"></a>1.1.1例子: 居民用煤消耗季度值</h3><p><img src="%E5%B1%85%E6%B0%91%E7%94%A8%E7%85%A4%E6%B6%88%E8%80%97%E5%AD%A3%E5%BA%A6%E5%80%BC.png" alt="居民用煤消耗季度值"></p>
+<h4 id="1-1-1-1-分解方法"><a href="#1-1-1-1-分解方法" class="headerlink" title="1.1.1.1 分解方法"></a>1.1.1.1 分解方法</h4><ul>
+<li>估计趋势${\hat{T_t}}$后, $X_t-\hat{T_t}$主要由<strong>季节项</strong>和<strong>随机项</strong>组成</li>
+<li>趋势估计可用:<ul>
+<li>每年平均</li>
+<li>线性回归拟合</li>
+<li>滑动平均估计</li>
+<li>等等</li>
+</ul>
+</li>
+</ul>
+<h4 id="1-1-1-2-用每年的平均值作为趋势项估计-季度平均作为季节项"><a href="#1-1-1-2-用每年的平均值作为趋势项估计-季度平均作为季节项" class="headerlink" title="1.1.1.2 用每年的平均值作为趋势项估计, 季度平均作为季节项"></a>1.1.1.2 用每年的平均值作为趋势项估计, 季度平均作为季节项</h4><p>这样的趋势是阶梯函数， 每年的4个季度的趋势相等。 去趋势后同季度平均作为季节项。</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2019/11/30/R%E8%AF%AD%E8%A8%80%E7%AC%94%E8%AE%B00/" data-id="ck3lir1re0002do154blv6sqt" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/R%E8%AF%AD%E8%A8%80/" rel="tag">R语言</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
     <article id="post-强化学习笔记1" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2019/11/30/%E5%BC%BA%E5%8C%96%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B01/" class="article-date">
@@ -89,7 +148,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/11/30/%E5%BC%BA%E5%8C%96%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B01/" data-id="ck3kerlw300051s157n2ohsy0" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2019/11/30/%E5%BC%BA%E5%8C%96%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B01/" data-id="ck3lir1rl0006do159omp75h2" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E5%BC%BA%E5%8C%96%E5%AD%A6%E4%B9%A0-Reinforcement-Learning/" rel="tag">强化学习(Reinforcement Learning)</a></li></ul>
@@ -127,7 +186,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/11/30/test3/" data-id="ck3kerlvz00021s15ccmud8ik" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2019/11/30/test3/" data-id="ck3lir1rk0005do152jq57pof" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/A/" rel="tag">A</a></li></ul>
@@ -165,7 +224,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/11/30/test2/" data-id="ck3kerlvx00011s157dfr6sp3" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2019/11/30/test2/" data-id="ck3lir1ri0004do150g0kai6t" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/A/" rel="tag">A</a></li></ul>
@@ -203,7 +262,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/11/30/test1/" data-id="ck3kerlw200041s153h0vdfom" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2019/11/30/test1/" data-id="ck3lir1rc0001do15ec4lc5vg" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/A/" rel="tag">A</a></li></ul>
@@ -254,7 +313,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/11/30/hello-world/" data-id="ck3kerlvs00001s159copg237" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2019/11/30/hello-world/" data-id="ck3lir1r20000do158uh58zwe" class="article-share-link">Share</a>
       
       
     </footer>
@@ -277,7 +336,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Tags</h3>
     <div class="widget">
-      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/A/" rel="tag">A</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%BC%BA%E5%8C%96%E5%AD%A6%E4%B9%A0-Reinforcement-Learning/" rel="tag">强化学习(Reinforcement Learning)</a></li></ul>
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/A/" rel="tag">A</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/R%E8%AF%AD%E8%A8%80/" rel="tag">R语言</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%BC%BA%E5%8C%96%E5%AD%A6%E4%B9%A0-Reinforcement-Learning/" rel="tag">强化学习(Reinforcement Learning)</a></li></ul>
     </div>
   </div>
 
@@ -287,7 +346,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Tag Cloud</h3>
     <div class="widget tagcloud">
-      <a href="/tags/A/" style="font-size: 20px;">A</a> <a href="/tags/%E5%BC%BA%E5%8C%96%E5%AD%A6%E4%B9%A0-Reinforcement-Learning/" style="font-size: 10px;">强化学习(Reinforcement Learning)</a>
+      <a href="/tags/A/" style="font-size: 20px;">A</a> <a href="/tags/R%E8%AF%AD%E8%A8%80/" style="font-size: 10px;">R语言</a> <a href="/tags/%E5%BC%BA%E5%8C%96%E5%AD%A6%E4%B9%A0-Reinforcement-Learning/" style="font-size: 10px;">强化学习(Reinforcement Learning)</a>
     </div>
   </div>
 
@@ -309,6 +368,10 @@
       <ul>
         
           <li>
+            <a href="/2019/11/30/R%E8%AF%AD%E8%A8%80%E7%AC%94%E8%AE%B00/">R语言笔记0</a>
+          </li>
+        
+          <li>
             <a href="/2019/11/30/%E5%BC%BA%E5%8C%96%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B01/">强化学习笔记1</a>
           </li>
         
@@ -322,10 +385,6 @@
         
           <li>
             <a href="/2019/11/30/test1/">test1</a>
-          </li>
-        
-          <li>
-            <a href="/2019/11/30/hello-world/">Hello World</a>
           </li>
         
       </ul>
