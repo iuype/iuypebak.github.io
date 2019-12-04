@@ -7,15 +7,15 @@
   
   <title>卡尔曼滤波原理与推导 | 裴育的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="卡尔曼滤波原理与推导笔者在好友的推荐下，读了一篇关于卡尔曼滤波的博文。这是一篇非常亲民的博文。他将卡尔曼滤波讲的十分通俗通透。引用原文中的话：  如果以正确的方式看待它，卡尔曼滤波是非常简单和容易理解的，你只需要懂一些基本的概率和矩阵的知识就可以了。  卡尔曼滤波做了什么事？想象一个场景： 在平面上有一个机器人在运动，它身上有测量位置和速度的传感器。">
+  <meta name="description" content="卡尔曼滤波原理与推导笔者在好友的推荐下，读了一篇关于卡尔曼滤波的博文。这是一篇非常亲民的博文。他将卡尔曼滤波讲的十分通俗通透。引用原文中的话：  如果以正确的方式看待它，卡尔曼滤波是非常简单和容易理解的，你只需要懂一些基本的概率和矩阵的知识就可以了。  卡尔曼滤波做了什么事？想象一个场景： 在平面上有一个机器人在运动，它身上有测量位置和速度的传感器。我们用$x_t,v_t$表示每一个时刻$t$的位">
 <meta name="keywords" content="机器学习">
 <meta property="og:type" content="article">
 <meta property="og:title" content="卡尔曼滤波原理与推导">
 <meta property="og:url" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2019&#x2F;12&#x2F;04&#x2F;%E5%8D%A1%E5%B0%94%E6%9B%BC%E6%BB%A4%E6%B3%A2%E5%8E%9F%E7%90%86%E4%B8%8E%E6%8E%A8%E5%AF%BC&#x2F;index.html">
 <meta property="og:site_name" content="裴育的博客">
-<meta property="og:description" content="卡尔曼滤波原理与推导笔者在好友的推荐下，读了一篇关于卡尔曼滤波的博文。这是一篇非常亲民的博文。他将卡尔曼滤波讲的十分通俗通透。引用原文中的话：  如果以正确的方式看待它，卡尔曼滤波是非常简单和容易理解的，你只需要懂一些基本的概率和矩阵的知识就可以了。  卡尔曼滤波做了什么事？想象一个场景： 在平面上有一个机器人在运动，它身上有测量位置和速度的传感器。">
+<meta property="og:description" content="卡尔曼滤波原理与推导笔者在好友的推荐下，读了一篇关于卡尔曼滤波的博文。这是一篇非常亲民的博文。他将卡尔曼滤波讲的十分通俗通透。引用原文中的话：  如果以正确的方式看待它，卡尔曼滤波是非常简单和容易理解的，你只需要懂一些基本的概率和矩阵的知识就可以了。  卡尔曼滤波做了什么事？想象一个场景： 在平面上有一个机器人在运动，它身上有测量位置和速度的传感器。我们用$x_t,v_t$表示每一个时刻$t$的位">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2019-12-04T01:28:00.769Z">
+<meta property="og:updated_time" content="2019-12-04T02:29:44.134Z">
 <meta name="twitter:card" content="summary">
   
     <link rel="alternate" href="/atom.xml" title="裴育的博客" type="application/atom+xml">
@@ -90,12 +90,12 @@
 <p>如果以<strong>正确的方式</strong>看待它，卡尔曼滤波是非常简单和容易理解的，你只需要懂一些基本的概率和矩阵的知识就可以了。</p>
 </blockquote>
 <h1 id="卡尔曼滤波做了什么事？"><a href="#卡尔曼滤波做了什么事？" class="headerlink" title="卡尔曼滤波做了什么事？"></a>卡尔曼滤波做了什么事？</h1><p>想象一个场景：</p>
-<p>在平面上有一个机器人在运动，它身上有测量位置和速度的传感器。</p>
+<p>在平面上有一个机器人在运动，它身上有测量位置和速度的传感器。我们用$x_t,v_t$表示每一个时刻$t$的位置和速度。</p>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/12/04/%E5%8D%A1%E5%B0%94%E6%9B%BC%E6%BB%A4%E6%B3%A2%E5%8E%9F%E7%90%86%E4%B8%8E%E6%8E%A8%E5%AF%BC/" data-id="ck3qnc0mi00014w15c6330eoy" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2019/12/04/%E5%8D%A1%E5%B0%94%E6%9B%BC%E6%BB%A4%E6%B3%A2%E5%8E%9F%E7%90%86%E4%B8%8E%E6%8E%A8%E5%AF%BC/" data-id="ck3qoi84a00065g1590bq9rx1" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/" rel="tag">机器学习</a></li></ul>
@@ -217,6 +217,21 @@
 
 
 
-  </div><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+  </div>
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML"></script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
 </body>
 </html>
