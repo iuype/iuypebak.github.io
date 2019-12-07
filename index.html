@@ -85,18 +85,22 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="信息量和方差有正比关系-从这里出发推导ssvep刺激信号之间需要满足正交性"><a href="#信息量和方差有正比关系-从这里出发推导ssvep刺激信号之间需要满足正交性" class="headerlink" title="信息量和方差有正比关系-从这里出发推导ssvep刺激信号之间需要满足正交性"></a>信息量和方差有正比关系-从这里出发推导ssvep刺激信号之间需要满足正交性</h1><h2 id="形式化问题"><a href="#形式化问题" class="headerlink" title="形式化问题"></a>形式化问题</h2><p>出发点：希望刺激之间携带更多的信息。信息量与方差成正比。</p>
-<p>想要分析方差，就需要有方差的表达式。开始推导。<br>从最简单的情况入手：假设现在有两段经过segment的刺激<script type="math/tex">\{a(t)\},\{b(t)\},t=1,2,\dots,d</script></p>
-<script type="math/tex; mode=display">c(t) = \frac{a(t)+b(t)}{2}</script><p>方差可以这样估计：</p>
+        <h1 id="为啥正交的刺激是好的选择？为啥相位对提高分类有影响？思考…"><a href="#为啥正交的刺激是好的选择？为啥相位对提高分类有影响？思考…" class="headerlink" title="为啥正交的刺激是好的选择？为啥相位对提高分类有影响？思考…."></a>为啥正交的刺激是好的选择？为啥相位对提高分类有影响？思考….</h1><p>没有信息量的刺激不是好刺激，那么就可以从信息量的角度思考。</p>
+<p>核心问题如下：</p>
+<hr>
+<script type="math/tex; mode=display">正交性和相位到底有没有提高信息量呢？</script><hr>
+<h2 id="形式化问题"><a href="#形式化问题" class="headerlink" title="形式化问题"></a>形式化问题</h2><p>出发点：希望刺激之间携带更多的信息。信息量与方差成正比。我们可以从方差入手！！</p>
+<p>想要分析方差，就需要有方差的表达式。开始推导。<br>从最简单的情况入手：假设现在有两段经过segment的刺激<script type="math/tex">\{a(t)\},\{b(t)\},c(t) = \frac{a(t)+b(t)}{2},t=1,2,\dots,d</script></p>
+<p>方差可以这样估计：</p>
 <p>方差$(a(t),b(t)) \ <br>= \sum_{i=1}^{d} (a(i)-c(i))^2 + \sum_{i=1}^{d} (b(i)-c(i))^2 \ <br>=  \sum_{i=1}^{d} a(i)^2 + \sum_{i=1}^{d} b(i)^2 +2\sum_{i=1}^{d} c(i)^2 - 2\sum_{i=1}^{d}c(i)(a(i)+ b(i)) \ <br>= \sum_{i=1}^{d} a(i)^2 + \sum_{i=1}^{d} b(i)^2 +2\sum_{i=1}^{d} c(i)^2 - 4\sum_{i=1}^{d}c(i)^2 \\<br>= \sum_{i=1}^{d} a(i)^2 + \sum_{i=1}^{d} b(i)^2 -2\sum_{i=1}^{d} c(i)^2 \\<br>= \sum_{i=1}^{d} a(i)^2 + \sum_{i=1}^{d} b(i)^2 -2\sum_{i=1}^{d} (\frac{a(t)+b(t)}{2})^2 \\<br>= \frac{1}{2}\sum_{i=1}^{d} a(i)^2 + \frac{1}{2}\sum_{i=1}^{d} b(i)^2 - \sum_{i=1}^{d}a(i)b(i) \ <br>= \frac{1}{2}\sum_{i=1}^{d} a(i)^2 + \frac{1}{2}\sum_{i=1}^{d} b(i)^2 -&lt;\mathbb{a},\mathbb{b}&gt;$</p>
 <p>所以，<script type="math/tex">方差(a(t),b(t)) = \frac{1}{2}\sum_{i=1}^{d} a(i)^2 + \frac{1}{2}\sum_{i=1}^{d} b(i)^2 -<\mathbb{a},\mathbb{b}></script><br>形式化完毕。</p>
 <h2 id="方差分析-正交性对方差的贡献"><a href="#方差分析-正交性对方差的贡献" class="headerlink" title="方差分析-正交性对方差的贡献"></a>方差分析-正交性对方差的贡献</h2><p>由此可见方差$(a(t),b(t))$由三部分组成:</p>
 <ol>
 <li>信号$a$在时间d内的能量</li>
 <li>信号$b$在时间d内的能量</li>
-<li>信号$a,b$的<strong>向量内积</strong></li>
+<li><strong>信号$a,b$的向量内积</strong></li>
 </ol>
-<p>为了提高方差，可以人工选取正交的刺激。这样可以使向量内积为0，以期提高方差。</p>
+<p><strong>由3.可以看出：为了提高方差，可以人工选取正交的刺激。这样可以使向量内积为0，以期提高方差。</strong></p>
 <h2 id="方差分析-相位对方差的贡献"><a href="#方差分析-相位对方差的贡献" class="headerlink" title="方差分析-相位对方差的贡献"></a>方差分析-相位对方差的贡献</h2><p>再进一步分析方差：</p>
 <p>$\sum_{i=1}^{d} a(i)^2 = \lfloor\frac{d}{l}\rfloor\sum_{i=1}^{l} a(i)^2 + \sum_{i=1}^{d \pmod{l}} a(i)^2 ， l为信号a的周期。$ </p>
 <p>所以在时间长度d内，信号$a$对方差的贡献可以<strong>分成两部分</strong>：</p>
@@ -104,13 +108,14 @@
 <li>一个周期的能量*在d时间内的包含的完整周期个数</li>
 <li><strong>不足一个周期的残余能量。这部分是由信号的相位决定的。选择一个好的相位可以让这部分贡献增大</strong></li>
 </ol>
-<p>当d很大的时候，2.部分的贡献可以忽略不计。<br>当d很小的时候，2.部分的贡献应该予以重视。</p>
+<p>当d很大的时候，2.部分的贡献可以忽略不计。<br><strong>当d很小的时候，2.部分的贡献应该予以重视。</strong></p>
 <p>在脑机接口领域中希望提高ITR，是希望d越小越好的，所以引入相位编码可以提升ITR。引入相位是合理的。</p>
+<p>综上所述，正交的刺激，经过设计的相位，对提高ITR有好处。</p>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/12/07/%E4%B8%AA%E4%BA%BA%E6%83%B3%E6%B3%95%E5%85%B3%E4%BA%8Essvep%E8%A6%81%E6%B1%82%E5%88%BA%E6%BF%80%E4%B9%8B%E9%97%B4%E8%A6%81%E6%AD%A3%E4%BA%A4%E5%8F%8A%E7%9B%B8%E4%BD%8D%E5%AF%B9%E5%8F%AF%E5%88%86%E6%80%A7%E7%9A%84%E8%B4%A1%E7%8C%AE%E7%9A%84%E5%88%86%E6%9E%90/" data-id="ck3v7lphc0000fs153y7ybcue" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2019/12/07/%E4%B8%AA%E4%BA%BA%E6%83%B3%E6%B3%95%E5%85%B3%E4%BA%8Essvep%E8%A6%81%E6%B1%82%E5%88%BA%E6%BF%80%E4%B9%8B%E9%97%B4%E8%A6%81%E6%AD%A3%E4%BA%A4%E5%8F%8A%E7%9B%B8%E4%BD%8D%E5%AF%B9%E5%8F%AF%E5%88%86%E6%80%A7%E7%9A%84%E8%B4%A1%E7%8C%AE%E7%9A%84%E5%88%86%E6%9E%90/" data-id="ck3v8duey0001uo150hh460ng" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E8%84%91%E6%9C%BA%E6%8E%A5%E5%8F%A3/" rel="tag">脑机接口</a></li></ul>
@@ -151,7 +156,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/12/05/%E8%8B%B1%E8%AF%AD%E8%80%83%E8%AF%95/" data-id="ck3v7lpi3000bfs15c14e0767" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2019/12/05/%E8%8B%B1%E8%AF%AD%E8%80%83%E8%AF%95/" data-id="ck3v8duf80009uo151bgnfzj9" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E8%8B%B1%E8%AF%AD/" rel="tag">英语</a></li></ul>
@@ -216,7 +221,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/12/04/%E5%8D%A1%E5%B0%94%E6%9B%BC%E6%BB%A4%E6%B3%A2%E5%8E%9F%E7%90%86%E4%B8%8E%E6%8E%A8%E5%AF%BC/" data-id="ck3v7lpi20009fs154lo47k74" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2019/12/04/%E5%8D%A1%E5%B0%94%E6%9B%BC%E6%BB%A4%E6%B3%A2%E5%8E%9F%E7%90%86%E4%B8%8E%E6%8E%A8%E5%AF%BC/" data-id="ck3v8duf10002uo153cnefv51" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/" rel="tag">机器学习</a></li></ul>
@@ -270,7 +275,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/12/03/%E6%BF%80%E6%83%85%E5%8D%81%E4%BA%8C%E6%9C%88/" data-id="ck3v7lpi00008fs152fl9gx2e" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2019/12/03/%E6%BF%80%E6%83%85%E5%8D%81%E4%BA%8C%E6%9C%88/" data-id="ck3v8duf60005uo157de28qiy" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E4%BD%9C%E4%B8%9A/" rel="tag">作业</a></li></ul>
@@ -329,7 +334,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/12/01/%E6%97%B6%E9%97%B4%E5%BA%8F%E5%88%97%E5%89%8D%E5%90%8E%E7%8B%AC%E7%AB%8B%E6%80%A7%E5%AF%B9%E8%BF%90%E5%8A%A8%E6%83%B3%E8%B1%A1%E4%BF%A1%E5%8F%B7%E5%88%86%E6%9E%90%E7%9A%84%E5%BD%B1%E5%93%8D/" data-id="ck3v7lphm0003fs15bnwg3ql0" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2019/12/01/%E6%97%B6%E9%97%B4%E5%BA%8F%E5%88%97%E5%89%8D%E5%90%8E%E7%8B%AC%E7%AB%8B%E6%80%A7%E5%AF%B9%E8%BF%90%E5%8A%A8%E6%83%B3%E8%B1%A1%E4%BF%A1%E5%8F%B7%E5%88%86%E6%9E%90%E7%9A%84%E5%BD%B1%E5%93%8D/" data-id="ck3v8duf40004uo151o1ehyyx" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E8%84%91%E6%9C%BA%E6%8E%A5%E5%8F%A3/" rel="tag">脑机接口</a></li></ul>
@@ -377,7 +382,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/11/30/%E8%84%91%E6%9C%BA%E6%8E%A5%E5%8F%A3%E9%9A%8F%E7%AC%9401/" data-id="ck3v7lpi5000cfs15c645b0sk" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2019/11/30/%E8%84%91%E6%9C%BA%E6%8E%A5%E5%8F%A3%E9%9A%8F%E7%AC%9401/" data-id="ck3v8dufa000auo15h7nk07rc" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E8%84%91%E6%9C%BA%E6%8E%A5%E5%8F%A3/" rel="tag">脑机接口</a></li></ul>
@@ -416,7 +421,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/11/30/%E6%B5%8B%E8%AF%95/" data-id="ck3v7lphn0004fs155sxj503c" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2019/11/30/%E6%B5%8B%E8%AF%95/" data-id="ck3v8duf70006uo15h92dd0cd" class="article-share-link">Share</a>
       
       
     </footer>
@@ -461,7 +466,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/11/30/hello-world/" data-id="ck3v7lphj0001fs150tx0bqy4" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2019/11/30/hello-world/" data-id="ck3v8dues0000uo1571jz3deo" class="article-share-link">Share</a>
       
       
     </footer>
